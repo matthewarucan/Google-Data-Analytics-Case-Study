@@ -87,17 +87,17 @@ DESCRIBE dailyActivity_merged;
 SELECT *
 FROM sleepDay_merged;
 
-DESCRIBE sleepDay_merged
+DESCRIBE sleepDay_merged;
 
 SELECT *
 FROM hourlySteps_merged;
 
-DESCRIBE hourlySteps_merged
+DESCRIBE hourlySteps_merged;
 
 SELECT *
 FROM hourlyCalories;
 
-DESCRIBE hourlyCalories
+DESCRIBE hourlyCalories;
 ```
 
 ## 4: ANALYZE
