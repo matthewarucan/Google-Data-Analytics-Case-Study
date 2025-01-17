@@ -1,3 +1,4 @@
+![](/assets/bellabeat_logo.png)
 # Bellabeat Case Study
 
 ## 1: ASK
