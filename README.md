@@ -72,7 +72,27 @@ I will use ROCCC to assess whether this data has issues with bias or credibility
 - **Current**: No, the data is not current. It was collected in 2016, which makes it eight years old and potentially outdated.
 - **Cited**: Yes, the data is properly cited, with appropriate attribution to Mobius, ensuring transparency.
 
-## ANALYZE
+## 3: PROCESS
+In the process phase, we ensure our data is clean by correcting or removing inaccurate, corrupted, improperly formatted, duplicate, or incomplete entries within the dataset.
+
+### 3.1: Reviewing Our Data in SQL
+- To understand our data, we will use SQL to gain an initial overview of the data types, variable names, and the volume of data available.
+
+```SQL
+SELECT *
+FROM dailyActivity_merged;
+
+SELECT *
+FROM sleepDay_merged;
+
+SELECT *
+FROM hourlySteps_merged;
+
+SELECT *
+FROM hourlyCalories;
+```
+
+## 4: ANALYZE
 
 - **daily_activity**: #33 distinct IDs
   - ID, Activity Date, Calories
