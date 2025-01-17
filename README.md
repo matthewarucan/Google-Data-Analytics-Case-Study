@@ -80,23 +80,32 @@ In the process phase, we ensure our data is clean by correcting or removing inac
 
 ```SQL
 SELECT *
-FROM dailyActivity_merged;
-DESCRIBE dailyActivity_merged;
+FROM dailyActivity_merged
+
+DESCRIBE dailyActivity_merged
+
+SELECT COUNT(*) AS total_rows FROM dailyActivity_merged;;
 
 SELECT *
-FROM sleepDay_merged;
+FROM sleepDay_merged
 
-DESCRIBE sleepDay_merged;
+DESCRIBE sleepDay_merged
 
-SELECT *
-FROM hourlySteps_merged;
-
-DESCRIBE hourlySteps_merged;
+SELECT COUNT(*) AS total_rows FROM sleepDay_merged;
 
 SELECT *
-FROM hourlyCalories;
+FROM hourlySteps_merged
 
-DESCRIBE hourlyCalories;
+DESCRIBE hourlySteps_merged
+
+SELECT COUNT(*) AS total_rows FROM hourlySteps_merged;
+
+SELECT *
+FROM hourlyCalories
+
+DESCRIBE hourlyCalories
+
+SELECT COUNT(*) AS total_rows FROM hourlyCalories;
 ```
 
 ## 4: ANALYZE
