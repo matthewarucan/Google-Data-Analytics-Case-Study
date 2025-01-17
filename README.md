@@ -107,6 +107,13 @@ DESCRIBE hourlyCalories
 
 SELECT COUNT(*) AS total_rows FROM hourlyCalories;
 ```
+### 3.2: Data Cleaning
+```SQL
+-- Change table name from dailyActivity_merged to daily_activity
+ALTER TABLE dailyActivity_merged RENAME TO daily_activity; 
+
+```
+
 
 ## 4: ANALYZE
 
