@@ -82,14 +82,22 @@ In the process phase, we ensure our data is clean by correcting or removing inac
 SELECT *
 FROM dailyActivity_merged;
 
+DESCRIBE dailyActivity_merged;
+
 SELECT *
 FROM sleepDay_merged;
+
+DESCRIBE sleepDay_merged
 
 SELECT *
 FROM hourlySteps_merged;
 
+DESCRIBE hourlySteps_merged
+
 SELECT *
 FROM hourlyCalories;
+
+DESCRIBE hourlyCalories
 ```
 
 ## 4: ANALYZE
