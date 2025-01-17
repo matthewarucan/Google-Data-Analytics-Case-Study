@@ -81,7 +81,6 @@ In the process phase, we ensure our data is clean by correcting or removing inac
 ```SQL
 SELECT *
 FROM dailyActivity_merged;
-
 DESCRIBE dailyActivity_merged;
 
 SELECT *
