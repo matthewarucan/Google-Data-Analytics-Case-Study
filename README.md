@@ -79,12 +79,14 @@ In the process phase, we ensure our data is clean by correcting or removing inac
 - To understand our data, we will use SQL to gain an initial overview of the data types, variable names, and the volume of data available.
 
 ```SQL
--- Check dailyActivity_merged rows and columns names and data types. We will also see how many data entries we have.
+-- Check dailyActivity_merged rows and columns.
 SELECT *
 FROM dailyActivity_merged
 
+-- Check dailyActivity_merged data types.
 DESCRIBE dailyActivity_merged
 
+-- Check dailyActivity_merged amount of data entries we have.
 SELECT COUNT(*) AS total_rows FROM dailyActivity_merged;;
 
 SELECT *
