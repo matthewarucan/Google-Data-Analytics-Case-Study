@@ -77,35 +77,38 @@ In the process phase, we ensure our data is clean by correcting or removing inac
 ### 3.1: Reviewing Our Data in SQL
 - To understand our data, we will use SQL to gain an initial overview of the data types, variable names, and the volume of data available.
 
+
+1. Check dailyActivity_merged.csv, sleepDay_merged.csv, hourlySteps_merged.csv, hourlyCalories_merged.csv rows and columns.
 ```SQL
--- Check dailyActivity_merged rows and columns.
 SELECT *
 FROM dailyActivity_merged
-
--- Check dailyActivity_merged data types.
-DESCRIBE dailyActivity_merged
-
--- Check dailyActivity_merged amount of data entries we have.
-SELECT COUNT(*) AS total_rows FROM dailyActivity_merged;;
 
 SELECT *
 FROM sleepDay_merged
 
-DESCRIBE sleepDay_merged
-
-SELECT COUNT(*) AS total_rows FROM sleepDay_merged;
-
 SELECT *
 FROM hourlySteps_merged
 
-DESCRIBE hourlySteps_merged
-
-SELECT COUNT(*) AS total_rows FROM hourlySteps_merged;
-
 SELECT *
 FROM hourlyCalories
+```
+2. Check dailyActivity_merged.csv, sleepDay_merged.csv, hourlySteps_merged.csv, hourlyCalories_merged.csv data types.
+```SQL
+DESCRIBE dailyActivity_merged
+
+DESCRIBE sleepDay_merged
+
+DESCRIBE hourlySteps_merged
 
 DESCRIBE hourlyCalories
+```
+3. Check dailyActivity_merged.csv, sleepDay_merged.csv, hourlySteps_merged.csv, hourlyCalories_merged.csv count of data entries.
+```SQL
+SELECT COUNT(*) AS total_rows FROM dailyActivity_merged;
+
+SELECT COUNT(*) AS total_rows FROM sleepDay_merged;
+
+SELECT COUNT(*) AS total_rows FROM hourlySteps_merged;
 
 SELECT COUNT(*) AS total_rows FROM hourlyCalories;
 ```
