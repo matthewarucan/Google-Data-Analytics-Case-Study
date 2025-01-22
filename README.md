@@ -190,6 +190,22 @@ FROM sleepday;
 ```
 Our new table is called cleaned_sleepday but we will still have the original sleepday table.
 
+4. Changing the data type of all tables from text to DATETIME enables us to join different tables more effectively and extract specific details, such as the date and time of day.
+```SQL
+UPDATE daily_activity
+SET ActivityDate = STR_TO_DATE(ActivityDate, '%c/%e/%Y');
+-- Once the values are formatted correctly, update the column data type using ALTER TABLE
+ALTER TABLE daily_activity MODIFY COLUMN ActivityDate DATETIME;
+
+UPDATE cleaned_sleepday SET SleepDay = STR_TO_DATE(SleepDay, '%c/%e/%Y %r');
+ALTER TABLE cleaned_sleepday MODIFY COLUMN SleepDay DATETIME;
+
+UPDATE hourly_steps SET ActivityHour = STR_TO_DATE(ActivityHour, '%m/%d/%Y %h:%i:%s %p');
+ALTER TABLE hourly_steps MODIFY ActivityHour DATETIME;
+
+UPDATE hourly_calories SET ActivityHour = STR_TO_DATE(ActivityHour,'%m/%d/%Y %h:%i:%s %p');
+ALTER TABLE hourly_calories MODIFY ActivityHour DATETIME;
+```
 
 ## 4: ANALYZE
 
