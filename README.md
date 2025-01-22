@@ -155,15 +155,40 @@ There are 0 NULL values for hourly_calories because 0 rows were returned.
 
 3. Checking for duplicates rows for any of the tables.
 ```SQL
-SELECT 
-	Id, ActivityDate, TotalSteps
-FROM  
-	daily_activity
-GROUP BY
-	Id, ActivityDate, TotalSteps
+SELECT Id, ActivityDate, TotalSteps
+FROM daily_activity
+GROUP BY Id, ActivityDate, TotalSteps
 HAVING Count(*) > 1;
 ```
 There are no duplicate rows for daily_activity because 0 rows were returned.
+```SQL
+SELECT ID, ActivityHour, StepTotal
+FROM hourly_steps
+GROUP BY ID, ActivityHour, StepTotal
+HAVING COUNT(*) > 1;
+```
+There are no duplicate rows for hourly_steps because 0 rows were returned.
+```SQL
+SELECT Id, ActivityHour, Calories
+FROM hourly_calories
+GROUP BY Id, ActivityHour, Calories
+HAVING COUNT(*) > 1;
+```
+There are no duplicate rows for hourly_calories because 0 rows were returned.
+
+```SQL
+SELECT Id,SleepDay,TotalSleepRecords
+FROM sleepday
+GROUP BY Id,SleepDay,TotalSleepRecords
+HAVING COUNT(*) > 1;
+```
+There were 3 duplicate rows for sleepday, so we have to create a new table (cleaned_sleepday). We want to keep the original sleepday table intact. This allows us to retain the original data for reference, backup, or further analysis without risk of accidental data loss.
+```SQL
+CREATE TABLE cleaned_sleepday AS
+SELECT DISTINCT *
+FROM sleepday;
+```
+Our new table is called cleaned_sleepday but we will still have the original sleepday table.
 
 
 ## 4: ANALYZE
