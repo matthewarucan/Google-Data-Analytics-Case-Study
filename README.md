@@ -113,8 +113,8 @@ SELECT COUNT(*) AS total_rows FROM hourlySteps_merged;
 SELECT COUNT(*) AS total_rows FROM hourlyCalories;
 ```
 ### 3.2: Data Cleaning
+1. Update the names of all four tables to make them clearer and more understandable.
 ```SQL
--- Update the names of all four tables to make them clearer and more understandable.
 ALTER TABLE dailyActivity_merged RENAME TO daily_activity;
 
 ALTER TABLE sleepday_merged RENAME TO sleepday;
@@ -122,7 +122,27 @@ ALTER TABLE sleepday_merged RENAME TO sleepday;
 AlTER TABLE hourlysteps_merged RENAME TO hourly_steps;
 
 ALTER TABLE hourlycalories_merged RENAME TO hourly_calories;
+```
 
+2. Check if there are any NULL values for any of the tables.
+```SQL
+SELECT *
+FROM daily_activity
+WHERE COALESCE(Id, ActivityDate, TotalSteps, TotalDistance, TrackerDistance, LoggedActivitiesDistance, 
+		VeryActiveDistance, ModeratelyActiveDistance, LightActiveDistance, SedentaryActiveDistance, 
+		VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes, SedentaryMinutes, Calories) IS NULL;
+
+SELECT *
+FROM sleepday
+WHERE COALESCE(Id,SleepDay,TotalSleepRecords,TotalMinutesAsleep,TotalTimeInBed) IS NULL;
+
+SELECT *
+FROM hourly_steps
+WHERE COALESCE(Id,ActivityHour,StepTotal) IS NULL;
+
+SELECT *
+FROM hourly_calories
+WHERE COALESCE(Id, ActivityHour, Calories) IS NULL;
 ```
 
 
