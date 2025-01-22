@@ -114,16 +114,14 @@ SELECT COUNT(*) AS total_rows FROM hourlyCalories;
 ```
 ### 3.2: Data Cleaning
 ```SQL
--- Change table name from dailyActivity_merged to daily_activity
+-- Update the names of all four tables to make them clearer and more understandable.
 ALTER TABLE dailyActivity_merged RENAME TO daily_activity;
 
--- Check if there are any NULL values in daily_activity
--- NOTE: NO NULL values because returned 0 rows
-SELECT *
-FROM daily_activity
-WHERE COALESCE(Id, ActivityDate, TotalSteps, TotalDistance, TrackerDistance, LoggedActivitiesDistance, 
-		VeryActiveDistance, ModeratelyActiveDistance, LightActiveDistance, SedentaryActiveDistance, 
-		VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes, SedentaryMinutes, Calories) IS NULL;
+ALTER TABLE sleepday_merged RENAME TO sleepday;
+
+AlTER TABLE hourlysteps_merged RENAME TO hourly_steps;
+
+ALTER TABLE hourlycalories_merged RENAME TO hourly_calories;
 
 ```
 
