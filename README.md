@@ -209,6 +209,27 @@ UPDATE hourly_calories SET ActivityHour = STR_TO_DATE(ActivityHour,'%m/%d/%Y %h:
 ALTER TABLE hourly_calories MODIFY ActivityHour DATETIME;
 ```
 
+5. Creating new columns tailored to each specific table to enhance our data analysis.
+
+5.1: Daily Activity
+
+5.1.1: Create new columns TotalActiveMinutes and TotalActiveDistance
+```SQL
+ALTER TABLE daily_activity ADD COLUMN TotalActiveMinutes INT;
+UPDATE daily_activity SET TotalActiveMinutes = VeryActiveMinutes + FairlyActiveMinutes + LightlyActiveMinutes;
+
+ALTER TABLE daily_activity ADD COLUMN TotalActiveMinutes INT;
+UPDATE daily_activity SET TotalActiveMinutes = VeryActiveMinutes + FairlyActiveMinutes + LightlyActiveMinutes;
+```
+5.1.2: Getting the day of the week name and adding it as a new column
+```SQL
+ALTER TABLE daily_activity ADD COLUMN DayName VARCHAR(9);
+UPDATE daily_activity SET DayName = DAYNAME(ActivityDate);
+```
+
+
+
+
 ## 4: ANALYZE
 
 - **daily_activity**: #33 distinct IDs
