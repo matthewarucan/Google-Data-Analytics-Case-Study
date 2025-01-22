@@ -153,6 +153,19 @@ WHERE COALESCE(Id, ActivityHour, Calories) IS NULL;
 ```
 There are 0 NULL values for hourly_calories because 0 rows were returned.
 
+3. Checking for duplicates rows for any of the tables.
+```SQL
+SELECT 
+	Id, ActivityDate, TotalSteps
+FROM  
+	daily_activity
+GROUP BY
+	Id, ActivityDate, TotalSteps
+HAVING Count(*) > 1;
+```
+There are no duplicate rows for daily_activity because 0 rows were returned.
+
+
 ## 4: ANALYZE
 
 - **daily_activity**: #33 distinct IDs
