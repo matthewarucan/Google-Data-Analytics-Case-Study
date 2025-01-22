@@ -259,6 +259,44 @@ SET
   daily_activity.fitbitactivity = summary.fitbitactivity;
 ```
 
+5.2: Sleep Day
+
+5.2.1: Addding new column MinutesAwakeInBed = TotalTimeInBed - TotalMinutesAsleep
+```SQL
+ALTER TABLE sleepday ADD COLUMN MinutesAwakeInBed INT;
+UPDATE sleepday SET MinutesAwakeInBed = TotalTimeInBed - TotalMinutesAsleep;
+```
+
+5.2.2: Getting the day of the week name and then adding it to a new column
+```SQL
+SELECT DAYNAME(SleepDay) AS DAYNAME
+FROM cleaned_sleepday;
+ALTER TABLE cleaned_sleepday ADD COLUMN DayName VARCHAR(9);
+UPDATE cleaned_sleepday SET DayName = DAYNAME(SleepDay);
+```
+
+5.2.3: Changing Columns To Hours From Minutes. Changing Data Type FROM INT to FLOAT before updating the columns to be in hours instead of minutes
+```SQL
+-- 1. Changing Columns To Hours From Minutes
+SELECT TotalMinutesAsleep/60 AS TotalHourAsleep,
+TotalTimeInBed/60 AS TotalHourInBed,
+MinutesAwakeInBed/60 AS HoursAwakeInBed
+FROM cleaned_sleepday;
+
+-- 2. Changing Data Type FROM INT to FLOAT before updating the columns to be in hours instead of minutes
+ALTER TABLE cleaned_sleepday
+MODIFY TotalMinutesAsleep FLOAT,
+MODIFY TotalTimeInBed FLOAT,
+MODIFY MinutesAwakeInBed FLOAT;
+
+-- 3. Changing Column Names TO Hours Now
+ALTER TABLE cleaned_sleepday RENAME COLUMN TotalMinutesAsleep TO TotalHourAsleep;
+ALTER TABLE cleaned_sleepday RENAME COLUMN TotalTimeInBed TO TotalHourInBed;
+ALTER TABLE cleaned_sleepday RENAME COLUMN MinutesAwakeInBed TO HoursAwakeInBed; 
+```
+
+5.2.4: 
+
 ## 4: ANALYZE
 
 - **daily_activity**: #33 distinct IDs
