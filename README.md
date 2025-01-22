@@ -57,10 +57,9 @@ In this case study, SQL will be the main tool for data analysis. The CSV files t
 - `dailyActivity_merged.csv`
 - `sleepDay_merged.csv`
 - `hourlySteps_merged.csv`
-- `hourlyIntensities_merged.csv`
 - `hourlyCalories_merged.csv`
-- `heartrate_seconds_merged.csv`
-- `weightLogInfo_merged.csv`
+
+
 
 ### 2.3: Data Credibility and ROCCC Assessment
 
