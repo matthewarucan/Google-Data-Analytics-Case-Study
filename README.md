@@ -131,20 +131,27 @@ FROM daily_activity
 WHERE COALESCE(Id, ActivityDate, TotalSteps, TotalDistance, TrackerDistance, LoggedActivitiesDistance, 
 		VeryActiveDistance, ModeratelyActiveDistance, LightActiveDistance, SedentaryActiveDistance, 
 		VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes, SedentaryMinutes, Calories) IS NULL;
+```
+There are 0 NULL values for daily_activity because 0 rows were returned.
 
+```SQL
 SELECT *
 FROM sleepday
 WHERE COALESCE(Id,SleepDay,TotalSleepRecords,TotalMinutesAsleep,TotalTimeInBed) IS NULL;
-
+```
+There are 0 NULL values for sleepday because 0 rows were returned.
+```SQL
 SELECT *
 FROM hourly_steps
 WHERE COALESCE(Id,ActivityHour,StepTotal) IS NULL;
-
+```
+There are 0 NULL values for hourly_steps because 0 rows were returned.
+```SQL
 SELECT *
 FROM hourly_calories
 WHERE COALESCE(Id, ActivityHour, Calories) IS NULL;
 ```
-
+There are 0 NULL values for hourly_calories because 0 rows were returned.
 
 ## 4: ANALYZE
 
