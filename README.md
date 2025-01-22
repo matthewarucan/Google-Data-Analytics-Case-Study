@@ -226,9 +226,38 @@ UPDATE daily_activity SET TotalActiveMinutes = VeryActiveMinutes + FairlyActiveM
 ALTER TABLE daily_activity ADD COLUMN DayName VARCHAR(9);
 UPDATE daily_activity SET DayName = DAYNAME(ActivityDate);
 ```
-
-
-
+5.1.3: Separate ID by Light, Moderate, and Very Active by the amount of daily activity
+```SQL
+SELECT
+	ID,
+	COUNT(*) as TotalLoggedDays,
+    CASE
+		WHEN COUNT(Id) BETWEEN 0 AND 14 THEN 'Light User'
+        WHEN COUNT(Id) BETWEEN 15 AND 24 THEN 'Moderate User'
+        WHEN COUNT(Id) BETWEEN 25 AND 31 THEN 'Very Active User'
+	END AS fitbitactivity
+FROM daily_activity
+GROUP BY Id;
+```
+5.1.4: Add a new column, fitbitactivity, to categorize users based on the frequency of their activity logs.
+```SQL
+ALTER TABLE daily_activity ADD COLUMN fitbitactivity VARCHAR(20);
+UPDATE daily_activity 
+  JOIN (
+    SELECT 
+      Id, 
+      CASE 
+      WHEN COUNT(*) BETWEEN 0 AND 14 THEN 'Light User' 
+      WHEN COUNT(*) BETWEEN 15 AND 24 THEN 'Moderate User' 
+      WHEN COUNT(*) BETWEEN 25 AND 31 THEN 'Very Active User' END AS fitbitactivity 
+    FROM 
+      daily_activity 
+    GROUP BY 
+      Id
+  ) AS summary ON daily_activity.Id = summary.Id 
+SET 
+  daily_activity.fitbitactivity = summary.fitbitactivity;
+```
 
 ## 4: ANALYZE
 
