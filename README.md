@@ -113,7 +113,7 @@ SELECT COUNT(*) AS total_rows FROM hourlySteps_merged;
 SELECT COUNT(*) AS total_rows FROM hourlyCalories;
 ```
 ### 3.2: Data Cleaning
-## 1. Update the names of all four tables to make them clearer and more understandable.
+#### 1. Update the names of all four tables to make them clearer and more understandable.
 ```SQL
 ALTER TABLE dailyActivity_merged RENAME TO daily_activity;
 
