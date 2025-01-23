@@ -124,7 +124,7 @@ AlTER TABLE hourlysteps_merged RENAME TO hourly_steps;
 ALTER TABLE hourlycalories_merged RENAME TO hourly_calories;
 ```
 
-2. Check if there are any NULL values for any of the tables.
+#### 2. Check if there are any NULL values for any of the tables.
 ```SQL
 SELECT *
 FROM daily_activity
@@ -190,7 +190,7 @@ FROM sleepday;
 ```
 Our new table is called cleaned_sleepday but we will still have the original sleepday table.
 
-4. Changing the data type of all tables from text to DATETIME enables us to join different tables more effectively and extract specific details, such as the date and time of day.
+#### 4. Changing the data type of all tables from text to DATETIME enables us to join different tables more effectively and extract specific details, such as the date and time of day.
 ```SQL
 UPDATE daily_activity SET ActivityDate = STR_TO_DATE(ActivityDate, '%c/%e/%Y');
 -- Once the values are formatted correctly, update the column data type using ALTER TABLE for daily_activity
@@ -209,7 +209,7 @@ UPDATE hourly_calories SET ActivityHour = STR_TO_DATE(ActivityHour,'%m/%d/%Y %h:
 ALTER TABLE hourly_calories MODIFY ActivityHour DATETIME;
 ```
 
-5. Creating new columns tailored to each specific table to enhance our data analysis.
+#### 5. Creating new columns tailored to each specific table to enhance our data analysis.
 
 5.1: Daily Activity
 
