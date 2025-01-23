@@ -295,7 +295,23 @@ ALTER TABLE cleaned_sleepday RENAME COLUMN TotalTimeInBed TO TotalHourInBed;
 ALTER TABLE cleaned_sleepday RENAME COLUMN MinutesAwakeInBed TO HoursAwakeInBed; 
 ```
 
-5.2.4: 
+5.3: Hourly Steps
+
+5.3.1: Getting the day of the week name and saving it as a column
+```SQL
+SELECT DAYNAME(ActivityHour) AS DAYNAME
+FROM hourly_steps;
+ALTER TABLE hourly_steps ADD COLUMN DayName VARCHAR(9);
+UPDATE hourly_steps SET DayName = DAYNAME(ActivityHour);
+```
+
+5.4: Hourly Calories
+
+5.4.1: Getting the day of the week name and saving it as a column
+```SQL
+ALTER TABLE hourly_calories ADD COLUMN DayName VARCHAR(9);
+UPDATE hourly_calories SET DayName = DAYNAME(ActivityHour);
+```
 
 ## 4: ANALYZE
 
