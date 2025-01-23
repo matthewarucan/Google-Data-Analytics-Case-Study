@@ -313,6 +313,27 @@ ALTER TABLE hourly_calories ADD COLUMN DayName VARCHAR(9);
 UPDATE hourly_calories SET DayName = DAYNAME(ActivityHour);
 ```
 
+### 3.3: Data Cleaning Joining Tables
+
+3.3.1: LEFT JOIN daily_activity AND cleaned_sleepday on ID and Activity Date
+```SQL
+SELECT *
+FROM daily_activity
+LEFT JOIN cleaned_sleepday ON daily_activity.Id = cleaned_sleepday.Id
+	AND daily_activity.ActivityDate = cleaned_sleepday.SleepDay;
+```
+
+3.3.2: LEFT JOIN daily_activity and Sleepday, grouping by Activity Date and ID. Getting the AVG of the different columns 
+```SQL
+SELECT ActivityDate, COUNT(*), AVG(TotalSteps), AVG(TotalDistance), AVG(Calories), AVG(TotalActiveMinutes), 
+AVG(TotalActiveDistance), AVG(TotalSleepRecords), AVG(TotalHourAsleep), AVG(HoursAwakeInBed), AVG(HoursAwakeInBed)
+FROM cleaned_sleepday
+LEFT JOIN daily_activity ON daily_activity.Id = cleaned_sleepday.Id AND daily_activity.ActivityDate = cleaned_sleepday.SleepDay
+GROUP BY ActivityDate
+ORDER BY AVG(TotalSteps) DESC;
+```
+
+
 ## 4: ANALYZE
 
 - **daily_activity**: #33 distinct IDs
