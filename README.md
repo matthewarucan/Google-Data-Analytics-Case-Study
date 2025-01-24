@@ -435,8 +435,30 @@ ORDER BY
     TotalSteps DESC;
 ```
 
+The data indicates that, on average, 18:00 (6 PM) is the time when users burn the most calories, followed by 17:00 (5 PM) and 19:00 (7 PM). Therefore, the period between 5 PM and 7 PM is when users typically experience the highest calorie expenditure.
+```SQL
+SELECT 
+    HOUR(ActivityHour) AS HourOfDay, 
+    ROUND(AVG(COALESCE(Calories, 0)), 2) AS AvgCalories
+FROM 
+    hourly_calories
+GROUP BY 
+    HOUR(ActivityHour)
+ORDER BY 
+    AvgCalories DESC;
+```
 
-
-
+The data indicates that, on average, Saturday is when the most calories are burned, followed by Tuesday, Friday, Monday, Thursday, Wednesday, and Sunday.
+```SQL
+SELECT 
+    DAYNAME(ActivityHour) AS DayOfWeek, 
+    ROUND(AVG(Calories), 2) AS AvgCalories
+FROM 
+    hourly_calories
+GROUP BY 
+    DayOfWeek
+ORDER BY 
+    AvgCalories DESC;
+```
 
 
