@@ -403,7 +403,21 @@ GROUP BY fitbitactivity, DayName
 ORDER BY fitbitactivity, avg_calories DESC;
 ```
 
-
+The data reveals that the average sedentary minutes are not correlated with the average total active minutes. When we calculate the ratio of average sedentary minutes to average total active minutes, the result shows that a higher active-to-sedentary ratio indicates that, on average, individuals are spending a greater proportion of their time being active rather than sedentary. Saturday has the highest active-to-sedentary ratio, followed by Friday.
+```SQL
+SELECT 
+    DayName, 
+    ROUND(AVG(COALESCE(SedentaryMinutes, 0)), 2) AS avg_sedentary_minutes, 
+    ROUND(AVG(COALESCE(TotalActiveMinutes, 0)), 2) AS avg_total_active_minutes,
+    COUNT(*) AS total_records,
+    ROUND(AVG(COALESCE(TotalActiveMinutes, 0)) / AVG(COALESCE(SedentaryMinutes, 0)), 3) AS active_to_sedentary_ratio
+FROM 
+    daily_activity
+GROUP BY 
+    DayName
+ORDER BY 
+    active_to_sedentary_ratio DESC;
+```
 
 
 
