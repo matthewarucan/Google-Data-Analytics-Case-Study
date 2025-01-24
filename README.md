@@ -336,31 +336,78 @@ ORDER BY AVG(TotalSteps) DESC;
 ## 4: ANALYZE
 In this step, we calculate key metrics, analyze patterns, and summarize data to provide insights that address our business objectives.
 
-4.1: Summary Statistics MAX, MIN, AVG, SUM, and STDDEV
+This SQL query analyzes user activity data grouped by unique user IDs (Id). For each user, it calculates the total number of activity entries (Total_Entries) and summarizes their daily activity metrics. It computes the average daily distance traveled (AVG_Distance) and the standard deviation of the distances (StdDev_Distance), highlighting both typical activity levels and variations in performance. Similarly, it calculates the average number of steps taken daily (AVG_Steps) and their variability (StdDev_Steps), as well as the average minutes spent in active movement per day (AVG_Active_Minutes) and the variability in those active minutes (StdDev_Active_Minutes). This query helps to identify patterns in users’ physical activity, such as consistency, overall activity levels, and potential outliers or irregular behaviors.
+```SQL
+SELECT 
+    Id, 
+    COUNT(*) AS Total_Entries, 
+    AVG(TotalDistance) AS AVG_Distance, 
+    STDDEV(TotalDistance) AS StdDev_Distance, 
+    AVG(TotalSteps) AS AVG_Steps, 
+    STDDEV(TotalSteps) AS StdDev_Steps, 
+    AVG(TotalActiveMinutes) AS AVG_Active_Minutes, 
+    STDDEV(TotalActiveMinutes) AS StdDev_Active_Minutes
+FROM 
+    daily_activity
+GROUP BY 
+    Id;
+```
+-- There is a clear diversity in activity levels among users, from sedentary to highly active individuals.
+High standard deviations in some cases indicate irregularity, while low standard deviations suggest consistent habits.
+Users with similar Avg_Distance and Avg_Steps often display similar Avg_ActiveMinutes, implying these metrics are interrelated.
 
--- Daily Activity MAX, MIN, AVG, SUM, and STDDEV
+The data shows that, on average, Saturday is the most popular day for exercise, followed by Tuesday, based on the average number of steps taken.
 ```SQL
-SELECT AVG(TotalDistance), MAX(TotalDistance), MIN(TotalDistance), SUM(TotalDistance), STDDEV(TotalDistance),
-AVG(TotalSteps), MIN(TotalSteps), MAX(TotalSteps), SUM(TotalSteps), STDDEV(TotalSteps),
-AVG(TotalActiveMinutes), MIN(TotalActiveMinutes), MAX(TotalActiveMinutes), SUM(TotalActiveMinutes), STDDEV(TotalActiveMinutes)
-FROM daily_activity;
-```
--- Sleep Day Max, MIN, AVG, SUM, and STDDEV
-```SQL
-SELECT MIN(TotalMinutesAsleep), MAX(TotalMinutesAsleep), AVG(TotalMinutesAsleep), SUM(TotalMinutesAsleep), STDDEV(TotalMinutesAsleep)
-FROM cleaned_sleepday;
-```
-
--- Hourly Steps Max, MIN, AVG, SUM, and STDDEV 
-```SQL
-SELECT MAX(StepTotal), MIN(StepTotal), AVG(StepTotal), SUM(StepTotal), STDDEV(StepTotal)
-FROM hourly_steps;
+SELECT DayName, 
+       COUNT(*) AS Total_Entries,
+       SUM(TotalDistance) AS Total_Distance,
+       AVG(TotalDistance) AS Avg_Distance,
+       SUM(TotalSteps) AS Total_Steps,
+       AVG(TotalSteps) AS Avg_Steps,
+       SUM(TotalActiveMinutes) AS Total_ActiveMinutes,
+       AVG(TotalActiveMinutes) AS Avg_ActiveMinutes
+FROM daily_activity
+GROUP BY DayName
+ORDER BY Avg_Steps DESC;
 ```
 
--- Hourly Calories Max, MIN, AVG, SUM, and STDDEV 
+Earlier, we created a column called "fitbitactivity," which classifies user entries based on the frequency of their activity logs. Users are classified as "Light Users" if their total entries are between 0 and 14, "Moderate Users" if their total entries are between 15 and 24, and "Very Active Users" if their total entries are between 25 and 31. By grouping the data by "Day Name" and "fitbitactivity," we can obtain a more accurate view of the average steps taken by users on different days. 
 ```SQL
-SELECT MAX(Calories), MIN(Calories), AVG(Calories), SUM(Calories), STDDEV(Calories)
-FROM hourly_calories;
+SELECT DayName, fitbitactivity,
+       COUNT(*) AS Total_Entries,
+       SUM(TotalDistance) AS Total_Distance,
+       AVG(TotalDistance) AS Avg_Distance,
+       SUM(TotalSteps) AS Total_Steps,
+       AVG(TotalSteps) AS Avg_Steps,
+       SUM(TotalActiveMinutes) AS Total_ActiveMinutes,
+       AVG(TotalActiveMinutes) AS Avg_ActiveMinutes
+FROM daily_activity
+GROUP BY DayName, fitbitactivity
+ORDER BY fitbitactivity, Avg_Steps DESC;
 ```
+Analysis: For "Light Users," we observe only four entries in total across separate days, making it not significant enough to analyze further. For "Moderate Users," the days with the highest average steps are Saturday, followed by Wednesday. For "Very Active Users," the days with the highest average steps are Tuesday, followed by Saturday.
+
+
+The data shows the average calories burned and activity minutes (Very Active, Fairly Active, Lightly Active, and Total Active Minutes) grouped by user activity level (Light, Moderate, Very Active) and day of the week. It highlights that Light Users primarily rely on Lightly Active Minutes, resulting in the lowest calorie burn, while Moderate Users achieve a balance across all activity types, leading to moderate calorie burn. Very Active Users consistently burn the most calories due to higher Very Active Minutes, which strongly correlate with calorie burn. Interestingly, for Very Active Users, Friday shows higher calorie burn than Saturday, despite Saturday having slightly higher averages in all activity categories, suggesting differences in activity intensity or outliers affecting the totals. Overall, the data underscores that activity intensity, especially Very Active Minutes, is the key driver of calorie expenditure.
+```SQL
+SELECT 
+    fitbitactivity, 
+    DayName, 
+    ROUND(AVG(COALESCE(Calories, 0)), 2) AS avg_calories, 
+    AVG(COALESCE(VeryActiveMinutes, 0)) AS avg_very_active_minutes, 
+    AVG(COALESCE(FairlyActiveMinutes, 0)) AS avg_fairly_active_minutes, 
+    AVG(COALESCE(LightlyActiveMinutes, 0)) AS avg_lightly_active_minutes,
+    AVG(COALESCE(TotalActiveMinutes, 0)) AS avg_total_active_minutes
+FROM daily_activity
+GROUP BY fitbitactivity, DayName
+ORDER BY fitbitactivity, avg_calories DESC;
+```
+
+
+
+
+
+
+
 
 
