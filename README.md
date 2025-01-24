@@ -420,6 +420,21 @@ ORDER BY
 ```
 
 
+The data shows the total number of steps taken, grouped by the hour of the day. It reveals that 18:00 (6:00 PM) and 19:00 (7:00 PM) are the hours with the highest total step counts. These same hours also have the highest average step counts.
+```SQL
+SELECT 
+    HOUR(ActivityHour) AS HourOfDay, 
+    COUNT(*) AS TotalRecords, 
+    SUM(StepTotal) AS TotalSteps,
+    AVG(StepTotal) AS AVGSteps
+FROM 
+    hourly_steps
+GROUP BY 
+    HOUR(ActivityHour)
+ORDER BY 
+    TotalSteps DESC;
+```
+
 
 
 
