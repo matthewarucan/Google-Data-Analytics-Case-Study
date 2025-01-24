@@ -333,23 +333,34 @@ GROUP BY ActivityDate
 ORDER BY AVG(TotalSteps) DESC;
 ```
 
-
 ## 4: ANALYZE
+In this step, we calculate key metrics, analyze patterns, and summarize data to provide insights that address our business objectives.
 
-- **daily_activity**: #33 distinct IDs
-  - ID, Activity Date, Calories
-  - Day Name (i.e., Tuesday, Wednesday, Friday)
-  - Fitbit Activity (i.e., Very Active User, Moderate User, Light User)
-  - Total Steps, Total Distance, Total Active Minutes, Total Active Distance
-  - Very Active Distance, Moderately Active Distance, Light Active Distance, Sedentary Active Distance
-  - Very Active Minutes, Fairly Active Minutes, Lightly Active Minutes, Sedentary Active Minutes
+4.1: Summary Statistics MAX, MIN, AVG, SUM, and STDDEV
 
-- **cleaned_sleepday**: #24 distinct IDs
-  - ID, Sleep Day
-  - Total Sleep Records, Total Hours Asleep, Total Hours In Bed, Hours Awake In Bed, Day Name
+-- Daily Activity MAX, MIN, AVG, SUM, and STDDEV
+```SQL
+SELECT AVG(TotalDistance), MAX(TotalDistance), MIN(TotalDistance), SUM(TotalDistance), STDDEV(TotalDistance),
+AVG(TotalSteps), MIN(TotalSteps), MAX(TotalSteps), SUM(TotalSteps), STDDEV(TotalSteps),
+AVG(TotalActiveMinutes), MIN(TotalActiveMinutes), MAX(TotalActiveMinutes), SUM(TotalActiveMinutes), STDDEV(TotalActiveMinutes)
+FROM daily_activity;
+```
+-- Sleep Day Max, MIN, AVG, SUM, and STDDEV
+```SQL
+SELECT MIN(TotalMinutesAsleep), MAX(TotalMinutesAsleep), AVG(TotalMinutesAsleep), SUM(TotalMinutesAsleep), STDDEV(TotalMinutesAsleep)
+FROM cleaned_sleepday;
+```
 
-- **hourly_steps**: #33 distinct IDs
-  - ID, Activity Hour, Step Total, Day Name (i.e., Tuesday, Wednesday, Friday)
+-- Hourly Steps Max, MIN, AVG, SUM, and STDDEV 
+```SQL
+SELECT MAX(StepTotal), MIN(StepTotal), AVG(StepTotal), SUM(StepTotal), STDDEV(StepTotal)
+FROM hourly_steps;
+```
 
-- **hourly_calories**: #33 distinct IDs
-  - ID, Activity Hour, Calories
+-- Hourly Calories Max, MIN, AVG, SUM, and STDDEV 
+```SQL
+SELECT MAX(Calories), MIN(Calories), AVG(Calories), SUM(Calories), STDDEV(Calories)
+FROM hourly_calories;
+```
+
+
