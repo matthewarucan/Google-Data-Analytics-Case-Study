@@ -462,6 +462,7 @@ ORDER BY
 ```
 
 ## 5: SHARE
+The Share phase of data analytics involves communicating our findings and insights effectively to stakeholders or decision-makers. This phase is critical because the value of our analysis depends on how well others understand and act on it.
 
 ![](assets/graph.png)
 
