@@ -464,6 +464,13 @@ ORDER BY
 ## 5: SHARE
 The Share phase of data analytics involves communicating our findings and insights effectively to stakeholders or decision-makers. This phase is critical because the value of our analysis depends on how well others understand and act on it.
 
+Average Total Steps, Calories and Active Minutes Per Day:
 ![](assets/graph.png)
+This graph presents the average total steps, calories burned, and total daily active minutes over one month (our data covers only one month). All three metrics fluctuate but generally appear to correlate closely with one another. Days with higher steps tend to have higher calorie burn and more active minutes. There is a notable peak around April 24, with an average of 11,377 steps, corresponding to higher calorie burn and active minutes. Conversely, a significant drop occurs on May 13, with all metrics reaching their lowest point. This could indicate an anomaly or a rest day.
+
+
+
+
+
 
 
