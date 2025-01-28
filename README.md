@@ -469,7 +469,7 @@ Average Total Steps, Calories and Active Minutes Per Day:
 This graph presents the average total steps, calories burned, and total daily active minutes over one month (our data covers only one month). All three metrics fluctuate but generally appear to correlate closely with one another. Days with higher steps tend to have higher calorie burn and more active minutes. There is a notable peak around April 24, with an average of 11,377 steps, corresponding to higher calorie burn and active minutes. Conversely, a significant drop occurs on May 13, with all metrics reaching their lowest point. This could indicate an anomaly or a rest day.
 
 
-
+![](assets/avg_sedentary_min_total_active_min_by_day.png)
 
 
 
