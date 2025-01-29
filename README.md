@@ -493,4 +493,7 @@ The user activity levels are illustrated in this graph, with 93.51% of users cat
 The graph shows that average steps, calories, and total active minutes are all correlated; as one increases or decreases, the others follow suit.
 
 
+## 5: ACT
+
+
 
