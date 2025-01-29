@@ -466,19 +466,19 @@ The Share phase of data analytics involves communicating our findings and insigh
 
 ### Active to Sedentary Ratio by Day of the Week
 ![](assets/Active_to_Sedentary_Ratio_by_Day_of_the_Week.png)
-This graph displays the Active to Sedentary Ratio by Day of the Week, showing how active individuals are relative to their sedentary time on different days. The ratio is calculated by dividing the total active minutes by total sedentary minutes. A higher active-to-sedentary ratio suggests better physical activity levels. This ratio provides a standardized way to compare activity levels across different days, making it easier to spot patterns. From the graph we see that Saturday and Friday are the highest in terms of ratio. 
+This graph displays the Active to Sedentary Ratio by Day of the Week, illustrating how active individuals are relative to their sedentary time on different days. The ratio is calculated by dividing total active minutes by total sedentary minutes. A higher active-to-sedentary ratio indicates greater physical activity levels. This metric provides a standardized way to compare activity levels across different days, making it easier to identify trends and patterns. From the graph, we can see that Saturday and Friday have the highest ratios, suggesting that people tend to be more active on these days.
 
-
+### Dashboard of Activity Level Per Day 
 ![](assets/Activity_Level_Dashboard.png)
+Looking at the average activity level per day, Saturday stands out as the most active day, as shown by the highest average total active minutes. Additionally, the data indicates a positive correlation between active minutes and average total steps—more active minutes generally correspond to a higher step count.
 
-
+### Activity Patterns by Day of the Week and Activity Level 
 ![](assets/Activity_Patterns_by_Day_of_the_Week_and_Activity_Level.png)
+This graph illustrates the average total steps taken by users categorized as 'Moderate' and 'Very Active.' It reveals that Tuesday is the most popular day for exercise among 'Very Active' users, followed closely by Saturday, based on average total steps. Meanwhile, for 'Moderate' users, Saturday and Wednesday are the most popular days for exercise.
 
-
+### Average Calories Dashboard by Day and Hour 
 ![](assets/Average_Calories_Dashnoard.png)
-
-
-![](assets/Average_Calories_by_Day.png)
+The graph illustrates that Saturday has the highest average calorie burn based on overall trends. Additionally, the data shows that calorie expenditure peaks between 5:00 PM and 7:00 PM, with the highest point at 6:00 PM. Conversely, the lowest calorie burn occurs between 11:00 PM and 5:00 AM.
 
 
 ![](assets/Average_Step_Dashboard.png)
