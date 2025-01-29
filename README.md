@@ -464,11 +464,9 @@ ORDER BY
 ## 5: SHARE
 The Share phase of data analytics involves communicating our findings and insights effectively to stakeholders or decision-makers. This phase is critical because the value of our analysis depends on how well others understand and act on it.
 
-
-![](assets/AVG_Total_Active_Minutes_vs_AVG_Total_Minutes_in_Bed.png)
-
-
+### Active to Sedentary Ratio by Day of the Week
 ![](assets/Active_to_Sedentary_Ratio_by_Day_of_the_Week.png)
+This graph displays the Active to Sedentary Ratio by Day of the Week, showing how active individuals are relative to their sedentary time on different days. The ratio is calculated by dividing the total active minutes by total sedentary minutes. A higher active-to-sedentary ratio suggests better physical activity levels. This ratio provides a standardized way to compare activity levels across different days, making it easier to spot patterns. From the graph we see that Saturday and Friday are the highest in terms of ratio. 
 
 
 ![](assets/Activity_Level_Dashboard.png)
