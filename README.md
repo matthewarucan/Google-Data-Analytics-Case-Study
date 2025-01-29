@@ -480,14 +480,13 @@ This graph illustrates the average total steps taken by users categorized as 'Mo
 ![](assets/Average_Calories_Dashnoard.png)
 The graph illustrates that Saturday has the highest average calorie burn based on overall trends. Additionally, the data shows that calorie expenditure peaks between 5:00 PM and 7:00 PM, with the highest point at 6:00 PM. Conversely, the lowest calorie burn occurs between 11:00 PM and 5:00 AM.
 
-
+### Average Step Total Dashboard
 ![](assets/Average_Step_Dashboard.png)
+The graph shows that Saturday has the highest average step count, while Sunday has the lowest. The highest average step count occurs between 12:00 PM – 2:00 PM and 5:00 PM – 7:00 PM, with the peak at 6:00 PM.
 
-
+### User Classification by Activity Level
 ![](assets/User_Classification_by_Activity_Level.jpg)
-
-
-![](assets/Sleep_Analysis.png)
+The user activity levels are illustrated in this graph, with 93.51% of users categorized as 'Very Active Users,' 6.06% as 'Moderate Users,' and 0.43% as 'Light Users.'
 
 
 
