@@ -464,16 +464,32 @@ ORDER BY
 ## 5: SHARE
 The Share phase of data analytics involves communicating our findings and insights effectively to stakeholders or decision-makers. This phase is critical because the value of our analysis depends on how well others understand and act on it.
 
-Average Total Steps, Calories and Active Minutes Per Day:
-![](assets/graph.png)
-This graph presents the average total steps, calories burned, and total daily active minutes over one month (our data covers only one month). All three metrics fluctuate but generally appear to correlate closely with one another. Days with higher steps tend to have higher calorie burn and more active minutes. There is a notable peak around April 24, with an average of 11,377 steps, corresponding to higher calorie burn and active minutes. Conversely, a significant drop occurs on May 13, with all metrics reaching their lowest point. This could indicate an anomaly or a rest day.
 
-Average Sedentary Minutes v.s. Total Active Minutes By Day
-![](assets/avg_sedentary_min_total_active_min_by_day.png)
-This graph compares average sedentary minutes (blue bars) and total active minutes (orange line) by day of the week, highlighting notable trends in daily activity levels. Sedentary minutes consistently dominate across all days, averaging between 950 and 1,050 minutes, indicating that a significant portion of the day is spent inactive. Additionally, sedentary minutes remain relatively consistent throughout the week. In contrast, active minutes show more variation, with the highest levels occurring on Saturday, making it the most active day of the week. Conversely, Thursday and Sunday exhibit lower active minutes and higher sedentary time, suggesting these days are likely used for rest or downtime.
+![](assets/AVG_Total_Active_Minutes_vs_AVG_Total_Minutes_in_Bed.png)
 
 
+![](assets/Active_to_Sedentary_Ratio_by_Day_of_the_Week.png)
 
+
+![](assets/Activity_Level_Dashboard.png)
+
+
+![](assets/Activity_Patterns_by_Day_of_the_Week_and_Activity_Level.png)
+
+
+![](assets/Average_Calories_Dashnoard.png)
+
+
+![](assets/Average_Calories_by_Day.png)
+
+
+![](assets/Average_Step_Dashboard.png)
+
+
+![](assets/User_Classification_by_Activity_Level.jpg)
+
+
+![](assets/Sleep_Analysis.png)
 
 
 
