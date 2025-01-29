@@ -1,7 +1,7 @@
 ![](/assets/bellabeat_logo.png)
 # Bellabeat Case Study
 
-## 1: ASK
+# 1: ASK
 
 In the Ask phase, the objective is to clearly define the business problem and translate it into actionable questions. This involves understanding stakeholder goals, identifying success criteria, and outlining key deliverables while accounting for constraints such as time, resources, and data availability.
 
@@ -40,7 +40,7 @@ The goal is to analyze smart device usage data to:
 - **Visualizations**: Charts or graphs to highlight trends and insights.
 - **Recommendations**: High-level, actionable marketing strategies based on the analysis.
 
-## 2: PREPARE
+# 2: PREPARE
 
 In the Prepare phase, we examine the data to assess its structure, credibility, and relevance for answering the business questions. This includes addressing potential limitations, verifying the data's integrity, and ensuring compliance with ethical and legal standards.
 
@@ -71,7 +71,7 @@ I will use ROCCC to assess whether this data has issues with bias or credibility
 - **Current**: No, the data is not current. It was collected in 2016, which makes it eight years old and potentially outdated.
 - **Cited**: Yes, the data is properly cited, with appropriate attribution to Mobius, ensuring transparency.
 
-## 3: PROCESS
+# 3: PROCESS
 In the process phase, we ensure our data is clean by correcting or removing inaccurate, corrupted, improperly formatted, duplicate, or incomplete entries within the dataset.
 
 ### 3.1: Reviewing Our Data in SQL
@@ -333,7 +333,7 @@ GROUP BY ActivityDate
 ORDER BY AVG(TotalSteps) DESC;
 ```
 
-## 4: ANALYZE
+# 4: ANALYZE
 In this step, we calculate key metrics, analyze patterns, and summarize data to provide insights that address our business objectives.
 
 This SQL query analyzes user activity data grouped by unique user IDs (Id). For each user, it calculates the total number of activity entries (Total_Entries) and summarizes their daily activity metrics. It computes the average daily distance traveled (AVG_Distance) and the standard deviation of the distances (StdDev_Distance), highlighting both typical activity levels and variations in performance. Similarly, it calculates the average number of steps taken daily (AVG_Steps) and their variability (StdDev_Steps), as well as the average minutes spent in active movement per day (AVG_Active_Minutes) and the variability in those active minutes (StdDev_Active_Minutes). This query helps to identify patterns in users’ physical activity, such as consistency, overall activity levels, and potential outliers or irregular behaviors.
@@ -461,7 +461,7 @@ ORDER BY
     AvgCalories DESC;
 ```
 
-## 5: SHARE
+# 5: SHARE
 The Share phase of data analytics involves communicating our findings and insights effectively to stakeholders or decision-makers. This phase is critical because the value of our analysis depends on how well others understand and act on it.
 
 ### Active to Sedentary Ratio by Day of the Week
@@ -493,7 +493,7 @@ The user activity levels are illustrated in this graph, with 93.51% of users cat
 The graph shows that average steps, calories, and total active minutes are all correlated; as one increases or decreases, the others follow suit.
 
 
-## 5: ACT
+# 6: ACT
 Based on the data analysis in the Bellabeat case study, several actionable solutions can be shared with stakeholders to optimize Bellabeat’s marketing strategy and improve consumer engagement:
 
 ### 1. Target Active Days for Promotions
