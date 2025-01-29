@@ -488,5 +488,9 @@ The graph shows that Saturday has the highest average step count, while Sunday h
 ![](assets/assets/User_Classification_by_Activity_Level.png)
 The user activity levels are illustrated in this graph, with 93.51% of users categorized as 'Very Active Users,' 6.06% as 'Moderate Users,' and 0.43% as 'Light Users.'
 
+### Average Total Steps, Calories, and Active Minutes Per Day
+![](assets/AVG_Total_Steps,_Calories_&_Active_Minutes_Per_Day.png)
+The graph shows that average steps, calories, and total active minutes are all correlated; as one increases or decreases, the others follow suit.
+
 
 
