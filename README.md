@@ -485,7 +485,7 @@ The graph illustrates that Saturday has the highest average calorie burn based o
 The graph shows that Saturday has the highest average step count, while Sunday has the lowest. The highest average step count occurs between 12:00 PM – 2:00 PM and 5:00 PM – 7:00 PM, with the peak at 6:00 PM.
 
 ### User Classification by Activity Level
-![](assets/assets/User_Classification_by_Activity_Level.png)
+![](assets/User_Classification_by_Activity_Level.png)
 The user activity levels are illustrated in this graph, with 93.51% of users categorized as 'Very Active Users,' 6.06% as 'Moderate Users,' and 0.43% as 'Light Users.'
 
 ### Average Total Steps, Calories, and Active Minutes Per Day
